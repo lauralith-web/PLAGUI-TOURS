@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PLAGUI TOURS | Ayrton Aguirre Plata</title>
+<meta name="description" content="PLAGUI TOURS — aventuras globales, cultura, gatos y viajes guiados por Ayrton Aguirre Plata.">
+<style>
+/* FUENTES PREMIUM */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap');
+
+/* VARIABLES DE COLOR */
+:root {
+  --ink: #111827;       
+  --deep: #0f172a;      
+  --teal: #0d9488;      
+  --gold: #fbbf24;      
+  --cream: #f8fafc;     
+  --muted: #64748b;     
+  --white: #ffffff;
+  --shadow: rgba(15, 23, 42, 0.08);
+}
+
+/* ESTILOS BASE */
+* { box-sizing: border-box; scroll-behavior: smooth; }
+html { scroll-padding-top: 80px; }
+body { margin: 0; background: var(--cream); color: var(--ink); font-family: 'Outfit', system-ui, sans-serif; line-height: 1.6; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; transition: all 0.3s ease; }
+ul { list-style: none; padding: 0; margin: 0; }
+
+/* NAVEGACIÓN */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; color: var(--white); background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+.logo { font-weight: 800; letter-spacing: 2px; font-size: 1.3rem; display: flex; align-items: center; gap: 8px; }
+.logo b { color: var(--gold); }
+.navlinks a { margin-left: 28px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+.navlinks a:hover { color: var(--gold); }
+
+/* PORTADA */
+.hero { min-height: 100vh; padding: 140px 5% 80px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; color: var(--white); position: relative; background: radial-gradient(circle at 85% 30%, rgba(251, 191, 36, 0.15), transparent 40%), linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f766e 100%); overflow: hidden; }
+.hero::before { content: ""; position: absolute; width: 800px; height: 800px; border: 1px dashed rgba(255,255,255,0.15); border-radius: 50%; right: -250px; top: -150px; animation: spin 30s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* ETIQUETA MINIMALISTA */
+.eyebrow { display: inline-block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid var(--gold); padding-bottom: 4px; }
+
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1; margin: 0 0 20px; }
+h1 span { color: var(--gold); font-style: italic; display: block; }
+.hero p { font-size: 1.15rem; max-width: 600px; color: #cbd5e1; margin-bottom: 25px; font-weight: 300; }
+
+.heroButtons { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; }
+.btn { display: inline-flex; gap: 12px; align-items: center; padding: 14px 26px; background: var(--gold); color: var(--deep); border-radius: 50px; font-weight: 800; box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3); font-size: 1rem; }
+.btn:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 15px 35px rgba(251, 191, 36, 0.4); }
+
+/* BOTÓN ESPECIAL EK BALAM CON FOTO */
+.ekBalamBtnCard { display: inline-flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(251, 191, 36, 0.4); padding: 8px 18px 8px 8px; border-radius: 50px; backdrop-filter: blur(5px); transition: all 0.3s ease; text-decoration: none; color: var(--white); font-weight: 600; font-size: 0.95rem; }
+.ekBalamBtnCard img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+.ekBalamBtnCard:hover { background: rgba(251, 191, 36, 0.2); transform: translateY(-3px); border-color: var(--gold); }
+
+.heroVisual { height: 600px; position: relative; perspective: 1000px; }
+.photo { position: absolute; overflow: hidden; border: 8px solid var(--white); border-radius: 35px; box-shadow: 0 25px 60px rgba(0,0,0,0.4); animation: float 6s ease-in-out infinite; }
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.mainPhoto { inset: 0 60px 40px 0; z-index: 2; }
+.smallPhoto { width: 48%; height: 45%; right: 0; bottom: 0; z-index: 3; animation-delay: -3s; border-width: 6px; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(1deg); } }
+.badge { position: absolute; left: -20px; bottom: 50px; background: var(--white); color: var(--deep); padding: 15px 25px; border-radius: 20px; font-weight: 800; font-size: 1.1rem; transform: rotate(-5deg); z-index: 10; box-shadow: 0 15px 30px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 10px; }
+
+/* SECCIONES COMUNES */
+section { max-width: 1250px; margin: auto; padding: 120px 5%; }
+.kicker { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; color: var(--teal); font-weight: 800; display: block; margin-bottom: 15px; }
+h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin: 0 0 20px; color: var(--deep); }
+.lead { max-width: 700px; color: var(--muted); font-size: 1.15rem; margin-bottom: 40px; }
+
+/* SOBRE MÍ */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 20px; }
+.card { background: var(--white); border-radius: 30px; padding: 40px 30px; box-shadow: 0 20px 40px var(--shadow); transition: all 0.4s ease; border: 1px solid rgba(0,0,0,0.03); position: relative; overflow: hidden; }
+.card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+.card:hover::before { transform: scaleX(1); }
+.card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12); }
+.icon { font-size: 2.5rem; margin-bottom: 20px; background: var(--cream); width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+.card h3 { color: var(--deep); margin: 0 0 12px; font-size: 1.5rem; font-family: 'Playfair Display', serif; }
+
+/* SECCIÓN EK BALAM */
+.ekBalamSection { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: var(--white); border-radius: 40px; padding: 80px 60px; box-shadow: 0 30px 60px rgba(15, 23, 42, 0.3); margin-top: 40px; }
+.ekBalamGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.ekBalamImgBox { border-radius: 30px; overflow: hidden; border: 6px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5); height: 450px; }
+.ekBalamImgBox img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ekBalamContent h2 { color: var(--white); }
+.ekBalamContent p { color: #cbd5e1; font-size: 1.05rem; margin-bottom: 20px; }
+.ekBalamFacts { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 25px; }
+.factItem { background: rgba(255,255,255,0.05); padding: 15px 20px; border-radius: 15px; border-left: 4px solid var(--gold); font-size: 0.95rem; color: #e2e8f0; }
+
+/* DESTINOS */
+.destGrid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; }
+.dest { height: 400px; border-radius: 35px; overflow: hidden; position: relative; transition: transform 0.5s ease; box-shadow: 0 20px 50px var(--shadow); }
+.dest:hover { transform: scale(1.02); }
+.dest.it { background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('italia.png') center/cover; }
+.dest.mx { background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('mexico.png') center/cover; }
+.destContent { position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px; color: var(--white); }
+.dest h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin: 0 0 10px; }
+.dest p { margin: 0; font-size: 1.1rem; opacity: 0.9; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+
+/* MAPAMUNDI */
+.mapBox { padding: 40px; border-radius: 40px; color: var(--white); background: linear-gradient(145deg, #0f172a, #1e293b); box-shadow: 0 30px 60px rgba(15, 23, 42, 0.25); position: relative; overflow: hidden; }
+.map { height: 450px; border-radius: 25px; position: relative; margin-top: 20px; background-image: url("Captura de pantalla 2026-08-04 213626.jpg"); background-position: center; background-size: cover; background-repeat: no-repeat; box-shadow: inset 0 0 20px rgba(0,0,0,0.5); }
+.pin { position: absolute; width: 18px; height: 18px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 8px rgba(251,191,36,0.2), 0 0 20px rgba(251,191,36,0.8); animation: pulse 2s infinite; cursor: pointer; border: 2px solid #0f172a; }
+.pin.mx { left: 25%; top: 41%; } 
+.pin.it { left: 53%; top: 25%; } 
+@keyframes pulse { 50% { box-shadow: 0 0 0 15px rgba(251,191,36,0), 0 0 20px rgba(251,191,36,0.8); transform: scale(1.1); } }
+.mapDetailGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
+.visitList { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05); }
+.visitList h4 { margin: 0 0 20px; font-size: 1.2rem; color: var(--gold); display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; }
+.visitList ul { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.visitList li { color: #cbd5e1; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
+.visitList li::before { content: "📍"; font-size: 0.8rem; }
+
+/* GALERÍA */
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 250px; gap: 20px; }
+.g { border-radius: 25px; overflow: hidden; position: relative; box-shadow: 0 15px 35px var(--shadow); cursor: pointer; }
+.g img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
+.g:hover img { transform: scale(1.1); }
+.g::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%); opacity: 0; transition: opacity 0.4s ease; }
+.g:hover::after { opacity: 1; }
+.g span { position: absolute; bottom: -30px; left: 20px; color: var(--white); font-weight: 600; font-size: 1.1rem; z-index: 2; transition: bottom 0.4s ease; }
+.g:hover span { bottom: 20px; }
+.g1 { grid-column: span 2; grid-row: span 2; } 
+.g2 { grid-column: span 2; grid-row: span 1; } 
+.g3 { grid-column: span 1; grid-row: span 1; } 
+.g4 { grid-column: span 1; grid-row: span 1; } 
+.g5 { grid-column: span 2; grid-row: span 1; } 
+
+/* CONTACTO */
+.contact { background: var(--deep); color: var(--white); border-radius: 40px; padding: 70px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; box-shadow: 0 30px 60px rgba(15, 23, 42, 0.2); position: relative; overflow: hidden; }
+.contact::after { content: "🐈"; position: absolute; right: -20px; bottom: -30px; font-size: 15rem; opacity: 0.05; transform: rotate(-15deg); }
+.contact h2 { color: var(--white); margin-bottom: 15px; }
+.contactInfo { display: flex; flex-direction: column; gap: 20px; }
+.contactCard { background: rgba(255,255,255,0.05); padding: 20px 30px; border-radius: 20px; display: flex; align-items: center; gap: 20px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; }
+.contactCard:hover { background: rgba(255,255,255,0.1); transform: translateX(10px); }
+.contactCard i { font-size: 2rem; }
+.contactCard div span { display: block; font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+.contactCard div a { color: var(--gold); font-weight: 800; font-size: 1.2rem; }
+
+footer { padding: 40px; text-align: center; background: #020617; color: #64748b; font-weight: 500; font-size: 0.95rem; }
+footer b { color: var(--gold); }
+
+/* RESPONSIVE DESIGN */
+@media(max-width:950px){
+  .navlinks { display: none; }
+  .hero { grid-template-columns: 1fr; text-align: center; padding-top: 130px; }
+  .eyebrow { margin: 0 auto 20px; }
+  h1 { font-size: 3.5rem; }
+  .hero p { margin: 0 auto 30px; }
+  .heroButtons { justify-content: center; }
+  .heroVisual { height: 450px; margin-top: 40px; }
+  .mainPhoto { inset: 0 20px 20px 0; }
+  .badge { left: 50%; transform: translateX(-50%) rotate(0); bottom: 10px; width: max-content; }
+  .cards, .destGrid, .mapDetailGrid, .contact, .ekBalamGrid { grid-template-columns: 1fr; }
+  .ekBalamSection { padding: 40px 25px; }
+  .gallery { grid-template-columns: 1fr 1fr; }
+  .g1 { grid-column: span 2; grid-row: span 2; }
+  .g2, .g3, .g4, .g5 { grid-column: span 1; }
+  .contact { padding: 40px 25px; }
+}
+@media(max-width:600px){
+  h1 { font-size: 2.8rem; }
+  .visitList ul { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 1fr; }
+  .g1, .g2, .g3, .g4, .g5 { grid-column: span 1; grid-row: span 1; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="logo">🐈 PLAGUI <b>TOURS</b></div>
+  <nav class="navlinks">
+    <a href="#inicio">Inicio</a>
+    <a href="#ek-balam">Próxima Aventura</a>
+    <a href="#historia">Sobre Mí</a>
+    <a href="#destinos">Destinos</a>
+    <a href="#mundo">Rutas</a>
+    <a href="#fotos">Galería</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<section id="inicio" class="hero">
+  <div>
+    <div class="eyebrow">Guía Oficial desde 2013</div>
+    <h1>Descubre el<br><span>Mundo Conmigo</span></h1>
+    <p>Soy Ayrton Aguirre Plata. Acompáñame a explorar ruinas antiguas, navegar en góndolas y descubrir la cultura mundial con mucha energía y curiosidad.</p>
+    
+    <div class="heroButtons">
+      <a class="btn" href="#historia">Comenzar la aventura 🌍</a>
+      <a class="ekBalamBtnCard" href="#ek-balam">
+        <img src="ekbalam.jpeg" alt="Ek Balam">
+        <span>Acompañanos en nuestra siguiente aventura en Ek Balam 🏛️</span>
+      </a>
+    </div>
+
+  </div>
+  <div class="heroVisual">
+    <div class="photo mainPhoto"><img src="5.jpeg" alt="Ayrton en el Coliseo Romano"></div>
+    <div class="photo smallPhoto"><img src="WhatsApp Image 2026-08-04 at 8.11.54 AM.jpeg" alt="Ayrton frente a Castel Sant'Angelo"></div>
+    <div class="badge">🇮🇹 Especialista en Italia</div>
+  </div>
+</section>
+
+<section id="ek-balam">
+  <span class="kicker">Próximo Destino Tour 2026</span>
+  <h2>Explorando Ek Balam.</h2>
+  <p class="lead">Prepárate para nuestra siguiente gran expedición. Vamos a adentrarnos en las misteriosas ruinas mayas de Yucatán para descubrir sus secretos mejor guardados.</p>
+  
+  <div class="ekBalamSection">
+    <div class="ekBalamGrid">
+      <div class="ekBalamImgBox">
+        <img src="ekbalam.jpeg" alt="Pirámide principal de Ek Balam vista desde arriba">
+      </div>
+      <div class="ekBalamContent">
+        <span class="kicker" style="color:var(--gold);">Información & Datos Curiosos</span>
+        <h2>La Ciudad del Jaguar Negro</h2>
+        <p>Ek Balam (cuyo nombre significa "Lucero Jaguar" o "Jaguar Oscuro" en maya) es una joya arqueológica impresionante situada en el corazón de Yucatán. A diferencia de otras zonas, aquí todavía se puede sentir la vibra mística de una ciudad perdida en la selva.</p>
+        
+        <div class="ekBalamFacts">
+          <div class="factItem">🏛️ <b>La Acrópolis:</b> Es la estructura principal y una de las pirámides más grandes de todo el área maya, con una vista espectacular desde lo alto sobre la copa de los árboles.</div>
+          <div class="factItem">👹 <b>El Monstruo de la Tierra:</b> Su fachada estucada simula las fauces abiertas de un monstruo o jaguar por donde los gobernantes pasaban simbólicamente al inframundo.</div>
+          <div class="factItem">🗿 <b>Estatuas aladas:</b> Cuenta con figuras de estuco increíblemente bien conservadas que parecen hombres con alas, algo muy raro y único en la arquitectura maya.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="historia">
+  <span class="kicker">Conoce a tu guía</span>
+  <h2>Ayrton Aguirre Plata.</h2>
+  <p class="lead">Nací el 17 de diciembre del 2013 y, desde muy pequeño, supe que quería conocer cada rincón del planeta. Mis tours no son convencionales: combinan historia, diversión y mucha exploración auténtica.</p>
+  <div class="cards">
+    <div class="card"><div class="icon">🌍</div><h3>Alma Viajera</h3><p>He recorrido gran parte del mundo desde que era un bebé, absorbiendo culturas y creando rutas únicas para mis tours.</p></div>
+    <div class="card"><div class="icon">🏛️</div><h3>Amor por la Historia</h3><p>Ya sea posando frente al Baptisterio de Pisa o caminando por las ruinas, me encanta conectar el pasado con el presente.</p></div>
+    <div class="card"><div class="icon">🐈</div><h3>¡Loco por los gatos!</h3><p>Un dato vital sobre mí: me encantan los gatos. Ningún tour está completo sin hacer una pausa para saludar a un felino local.</p></div>
+  </div>
+</section>
+
+<section id="destinos">
+  <span class="kicker">Mis Favoritos Absolutos</span>
+  <h2>Los lugares que robaron mi corazón.</h2>
+  <div class="destGrid">
+    <div class="dest it">
+      <div class="destContent">
+        <h3>🇮🇹 Florencia, Italia</h3>
+        <p>Mi lugar favorito en todo el mundo. La cuna del Renacimiento, llena de arte, historia y vistas inigualables.</p>
+      </div>
+    </div>
+    <div class="dest mx">
+      <div class="destContent">
+        <h3>🇲🇽 Yucatán, México</h3>
+        <p>Mi rincón preferido de México. Pirámides mayas, selva, deliciosa comida y cenotes misteriosos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mundo">
+  <span class="kicker">Diario de Viaje</span>
+  <h2>🌎 Dónde he dejado mi huella</h2>
+  
+  <div class="mapBox">
+    <div class="map">
+      <i class="pin mx" title="México"></i>
+      <i class="pin it" title="Italia"></i>
+    </div>
+    
+    <div class="mapDetailGrid">
+      <div class="visitList">
+        <h4>🇮🇹 Italia: Exploración Total</h4>
+        <ul>
+          <li>Florencia</li>
+          <li>Venecia</li>
+          <li>Bolonia</li>
+          <li>Prato</li>
+          <li>Luca</li>
+          <li>Imola</li>
+          <li>Pisa</li>
+          <li>Roma</li>
+          <li>Milán</li>
+          <li>Nápoles</li>
+          <li>Verona</li>
+          <li>Turín</li>
+        </ul>
+      </div>
+      <div class="visitList">
+        <h4>🇲🇽 México: Recorrido Nacional</h4>
+        <ul>
+          <li>Veracruz</li>
+          <li>Yucatán</li>
+          <li>CDMX</li>
+          <li>EDOmex</li>
+          <li>Nuevo León</li>
+          <li>Guerrero</li>
+          <li>Chiapas</li>
+          <li>Campeche</li>
+          <li>Tabasco</li>
+          <li>Puebla</li>
+          <li>Hidalgo</li>
+          <li>Morelos</li>
+          <li>Oaxaca</li>
+          <li>Quintana Roo</li>
+          <li>Jalisco</li>
+          <li>Guanajuato</li>
+          <li>Michoacán</li>
+          <li>Baja California</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fotos">
+  <span class="kicker">Fotografía</span>
+  <h2>📸 Galería de Aventuras.</h2>
+  <p class="lead">Desde mis primeros viajes de bebé hasta mis recorridos guiados por las maravillas de Italia.</p>
+  <div class="gallery">
+    <div class="g g1"><img src="10.jpeg" alt="Ayrton en góndola en Venecia"><span>Navegando en Venecia 🚣‍♂️</span></div>
+    <div class="g g2"><img src="WhatsApp Image 2026-08-04 at 8.14.02 AM.jpeg" alt="Ayrton en ruinas arqueológicas"><span>Explorando historia antigua 🏛️</span></div>
+    <div class="g g3"><img src="8.jpeg" alt="Ayrton frente al Baptisterio en Pisa"><span>Maravillas en Pisa 🇮🇹</span></div>
+    <div class="g g4"><img src="7.jpeg" alt="Ayrton abrigado"><span>Aventuras bajo cero ❄️</span></div>
+    <div class="g g5"><img src="6.jpeg" alt="Ayrton junto a estatua de piloto"><span>Conectando con leyendas 🏎️</span></div>
+    <div class="g g3"><img src="bebe1.jpeg" alt="Ayrton de bebé sonriendo"><span>Viajero desde la cuna 👶</span></div>
+    <div class="g g4"><img src="bebe2.jpeg" alt="Ayrton de bebé serio"><span>Listo para el primer tour ✈️</span></div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="contact">
+    <div>
+      <span class="kicker" style="color:var(--gold)">Hablemos</span>
+      <h2>¿Listo para tu próximo tour con PLAGUI?</h2>
+      <p>Contáctame para descubrir el mundo juntos. Siempre hay una nueva ciudad, una nueva historia y un nuevo gato por conocer.</p>
+    </div>
+    <div class="contactInfo">
+      <div class="contactCard"><i>📷</i><div><span>Instagram Oficial</span><a href="https://instagram.com/Demogod11" target="_blank">@Demogod11</a></div></div>
+      <div class="contactCard"><i>✉️</i><div><span>Correo Electrónico</span><a href="mailto:ayrton.aguirre@icloud.com">ayrton.aguirre@icloud.com</a></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <b>PLAGUI TOURS © 2026</b> · Construido con espíritu aventurero por Ayrton Aguirre Plata. 🐱
+</footer>
+
+</body>
+</html>
